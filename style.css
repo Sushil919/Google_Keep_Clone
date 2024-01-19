@@ -31,3 +31,13 @@ button{
     padding: 8px 12px;
     border: 1px solid white;
 }
+
+#notes{
+    padding: 23px;
+}
+.note{
+    width: 200px;
+    padding: 12px;
+    border: 1px solid white;
+    background: transparent;
+}
