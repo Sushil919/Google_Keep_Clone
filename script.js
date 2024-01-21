@@ -4,27 +4,25 @@ const addNoteButton = document.getElementById('addNote');
 const notesDiv = document.getElementById('notes');
 
 showNotes();
-
 function addNotes(){
     let notes = localStorage.getItem('notes');
-    if(notes == null){
+    if(notes === null){
         notes = [];
-    }
-    else{
+    }else{
         notes = JSON.parse(notes);
     }
+
     if(addText.value == ''){
         alert('Add your note');
         return;
     }
-
+    
     const noteObj = {
         title: addTitle.value,
-        note: addText.value
+        text: addText.value,
     }
     addTitle.value = '';
     addText.value = '';
-
     notes.push(noteObj);
     localStorage.setItem('notes', JSON.stringify(notes));
     showNotes();
@@ -39,9 +37,7 @@ function showNotes(){
         notes = JSON.parse(notes);
     }
     for(let i=0; i<notes.length; i++){
-        console.log(notes[i])
-        notesHTML += `
-                <div class="note">
+        notesHTML += `<div class="note">
                     <button class="deleteNote" id=${i} onclick="deleteNote(${i})">Delete</button>
                     <span class="title">${notes[i].title === "" ? 'Note' : notes[i].title}</span>
                     <div class="text">${notes[i].text}</div>
@@ -58,7 +54,6 @@ function deleteNote(ind){
     }else{
         notes = JSON.parse(notes);
     }
-
     notes.splice(ind, 1);
     localStorage.setItem('notes', JSON.stringify(notes));
     showNotes();
