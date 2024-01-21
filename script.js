@@ -14,7 +14,7 @@ function addNotes(){
         notes = JSON.parse(notes);
     }
     if(addText.value == ''){
-        alert('Add your note')
+        alert('Add your note');
         return;
     }
 
@@ -43,7 +43,7 @@ function showNotes(){
         notesHTML += `
                 <div class="note">
                     <button class="deleteNote" id=${i} onclick="deleteNote(${i})">Delete</button>
-                    <div class="title">${notes[i].title === "" ? 'Note' : notes[i].title}</div>
+                    <span class="title">${notes[i].title === "" ? 'Note' : notes[i].title}</span>
                     <div class="text">${notes[i].text}</div>
                 </div>
         `

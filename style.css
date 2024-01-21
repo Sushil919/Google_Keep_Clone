@@ -36,11 +36,11 @@ button{
     padding: 23px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
 }
 .note{
     width: 300px;
     color: #a1a0a0;
+    overflow-wrap: break-word;
     margin: 12px;
     padding: 12px;
     border: 1px solid black;
