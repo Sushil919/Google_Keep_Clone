@@ -34,12 +34,16 @@ button{
 
 #notes{
     padding: 23px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 .note{
-    width: 200px;
-    color: white;
+    width: 300px;
+    color: #a1a0a0;
+    margin: 12px;
     padding: 12px;
-    border: 1px solid white;
+    border: 1px solid black;
     background: transparent;
 }
 .deleteNote{

@@ -2,9 +2,8 @@ const addTitle = document.getElementById('addTitle');
 const addText = document.getElementById('addText');
 const addNoteButton = document.getElementById('addNote');
 const notesDiv = document.getElementById('notes');
-let notes = [];
 
-
+showNotes();
 
 function addNotes(){
     let notes = localStorage.getItem('notes');
@@ -23,6 +22,9 @@ function addNotes(){
         title: addTitle.value,
         note: addText.value
     }
+    addTitle.value = '';
+    addText.value = '';
+
     notes.push(noteObj);
     localStorage.setItem('notes', JSON.stringify(notes));
     showNotes();
@@ -40,12 +42,25 @@ function showNotes(){
         console.log(notes[i])
         notesHTML += `
                 <div class="note">
-                    <button class="deleteNote" >Delete</button>
+                    <button class="deleteNote" id=${i} onclick="deleteNote(${i})">Delete</button>
                     <div class="title">${notes[i].title === "" ? 'Note' : notes[i].title}</div>
                     <div class="text">${notes[i].text}</div>
                 </div>
         `
     }
     notesDiv.innerHTML = notesHTML;
+}
+
+function deleteNote(ind){
+    let notes = localStorage.getItem('notes');
+    if(notes === null){
+        return;
+    }else{
+        notes = JSON.parse(notes);
+    }
+
+    notes.splice(ind, 1);
+    localStorage.setItem('notes', JSON.stringify(notes));
+    showNotes();
 }
 addNoteButton.addEventListener('click', addNotes);
