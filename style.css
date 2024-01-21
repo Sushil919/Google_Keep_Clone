@@ -37,7 +37,11 @@ button{
 }
 .note{
     width: 200px;
+    color: white;
     padding: 12px;
     border: 1px solid white;
     background: transparent;
+}
+.deleteNote{
+    float: right;
 }
